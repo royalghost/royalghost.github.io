@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## Prabin Paudel Webpage
 
-You can use the [editor on GitHub](https://github.com/royalghost/royalghost.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Full Stack Developer
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I am a full stack developer with a passion and interest in software design, development and leading teams.
 
-### Markdown
+### Github
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+https://github.com/royalghost/
 
-```markdown
-Syntax highlighted code block
+### Twitter
 
-# Header 1
-## Header 2
-### Header 3
+https://twitter.com/paudelp/
 
-- Bulleted
-- List
+### LinkedIn
 
-1. Numbered
-2. List
+https://www.linkedin.com/in/paudelp/
 
-**Bold** and _Italic_ and `Code` text
+### Contact
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/royalghost/royalghost.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+If you want to reach out to me, shoot me email at paudelp[@]gmail.com
