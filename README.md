@@ -1,5 +1,3 @@
-## Prabin Paudel Webpage
-
 ### Full Stack Developer
 
 I am a full stack developer with a passion and interest in software design, development and leading teams.
