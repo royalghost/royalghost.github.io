@@ -1,6 +1,6 @@
 ### Full Stack Developer
 
-I am a full stack developer with a passion and interest in software design, development and leading teams.
+I am a full stack developer with a passion in software design, development and leading teams. Some of the other stuff I find interest are [here](./interesting.md).
 
 ### Github
 [https://github.com/royalghost/](https://github.com/royalghost/)
