@@ -10,7 +10,7 @@
 [The Knowledge Project Podcast with Shane Parrish](https://fs.blog/the-knowledge-project/)
 
 # People
-[Martin Fowler] (https://martinfowler.com/)
+[Martin Fowler](https://martinfowler.com/)
 
 # Books
 
