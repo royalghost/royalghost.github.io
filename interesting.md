@@ -13,4 +13,4 @@
 [Martin Fowler](https://martinfowler.com/)
 
 # Books
-[Designing Data-Intensive Applications] (https://dataintensive.net/)
+[Designing Data-Intensive Applications](https://dataintensive.net/)
