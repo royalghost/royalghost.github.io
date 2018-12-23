@@ -14,3 +14,6 @@
 
 # Books
 [Designing Data-Intensive Applications](https://dataintensive.net/)
+
+# Talk
+[Maybe Not, Rich Hickey](https://www.youtube.com/watch?v=YR5WdGrpoug)
