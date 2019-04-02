@@ -1,1 +1,8 @@
-theme: jekyll-theme-tactile
+#theme: jekyll-theme-tactile
+theme: jekyll-paginate
+
+#### Phantom Navigation menu
+enable_nav: true
+nav_item:
+  - { url: '/', text: 'Home' }
+- { url: '/about', text: 'About' }
