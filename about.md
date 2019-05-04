@@ -1,6 +1,10 @@
-# Interesting 
+---
+layout: page
+title: About
+permalink: /about/
+---
 
-#  Reads
+#  Reading
 [The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
 
 # Coding
