@@ -1,1 +1,285 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-04T18:40:34-04:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>Full Stack Developer</subtitle><entry><title type="html">Welcome to my website!</title><link href="http://localhost:4000/update/2019/05/04/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to my website!" /><published>2019-05-04T17:54:31-04:00</published><updated>2019-05-04T17:54:31-04:00</updated><id>http://localhost:4000/update/2019/05/04/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/update/2019/05/04/welcome-to-jekyll.html"></content><author><name></name></author><summary type="html"></summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-08T23:37:46-04:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>Full Stack Developer</subtitle><entry><title type="html">TDD for Finding Image Type in Java</title><link href="http://localhost:4000/tdd/java/2019/07/08/TDD-for-finding-image-type-in-Java.html" rel="alternate" type="text/html" title="TDD for Finding Image Type in Java" /><published>2019-07-08T00:00:00-04:00</published><updated>2019-07-08T00:00:00-04:00</updated><id>http://localhost:4000/tdd/java/2019/07/08/TDD-for-finding-image-type-in-Java</id><content type="html" xml:base="http://localhost:4000/tdd/java/2019/07/08/TDD-for-finding-image-type-in-Java.html">&lt;p&gt;In this blog post, I am going to walkthrough you an example of how to do TDD in Java in order to find the image type based on the magic number.&lt;/p&gt;
+
+&lt;p&gt;Magic Number in files are constant data that represent certain types of files.[1] For this example, we are only concerned with GIF, JPEG and PNG image types.&lt;/p&gt;
+
+&lt;h3 id=&quot;acceptance-criterias&quot;&gt;Acceptance Criterias&lt;/h3&gt;
+&lt;p&gt;The following are the acceptance criterias for this implementation.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GIF image files have the ASCII code for “GIF89a” (47 49 46 38 39 61) or “GIF87a” (47 49 46 38 37 61)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If the file type is GIF, it should idetify as &lt;code class=&quot;highlighter-rouge&quot;&gt;image/gif&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PNG image files begin with an 8-byte signature which identifies the file as a PNG file and allows detection of common file transfer problems: \211 P N G \r \n \032 \n (89 50 4E 47 0D 0A 1A 0A).&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If the file type is PNG, it should idetify as &lt;code class=&quot;highlighter-rouge&quot;&gt;image/png&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;JPEG image files begin with FF D8&lt;/li&gt;
+  &lt;li&gt;If the file type is JPEG, it should idetify as &lt;code class=&quot;highlighter-rouge&quot;&gt;image/jpeg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;lets-get-started&quot;&gt;Let’s get started&lt;/h2&gt;
+
+&lt;p&gt;The code is not yet implemented but let’s assume the following is the signature of the implementation:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public static final String getImageTypeFromByte(InputStream is) throws IOException 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;writing-test-first&quot;&gt;Writing Test First&lt;/h3&gt;
+&lt;p&gt;We will start writing the Test Cases first following the philosophy of Test Driven Development (TDD.)&lt;/p&gt;
+
+&lt;p&gt;There are couple of options for writing the test cases but the first approach is just to store the physical file types and use them to call the implementation. However, that’s not a good idea so we will create each file type during runtime.&lt;/p&gt;
+
+&lt;h3 id=&quot;base-case-to-test-for-null&quot;&gt;Base case to test for null&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Test
+public void testGetContentTypeFromByte_for_NULL() {
+	String result = null;
+	try {
+		result = ImageVerificationMain.getImageTypeFromByte(null);
+	} catch (IOException e) {
+		System.err.println(e);
+	}
+	assertEquals(result, null);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We haven’t yet implemented &lt;code class=&quot;highlighter-rouge&quot;&gt;ImageVerificationMain&lt;/code&gt; so it is going to fail. So, we go and implement the basic structure.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class ImageVerificationMain {
+
+	public static final String getImageTypeFromByte(InputStream is) throws IOException {
+		String contentType = null;
+		if (is == null)
+			return contentType;
+
+		return contentType;
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With the above implementation, the first test will pass.&lt;/p&gt;
+
+&lt;h3 id=&quot;test-for-text-type&quot;&gt;Test for Text Type&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Test
+public void testGetContentTypeFromByte_for_Text() {
+	String result = null;
+	try {
+		InputStream imageInputStream = new ByteArrayInputStream(&quot;this is a text&quot;.getBytes());
+		result = ImageVerificationMain.getImageTypeFromByte(imageInputStream);
+	} catch (IOException e) {
+		System.err.println(e);
+	}
+	assertEquals(result, null);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Second test will also pass so no code change is required.&lt;/p&gt;
+
+&lt;h3 id=&quot;test-case-for-gif&quot;&gt;Test Case for GIF&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Test
+public void testGetContentTypeFromByte_for_GIF() {
+	BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+	String result = null;
+	try {
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		ImageIO.write(image, &quot;gif&quot;, os);
+		InputStream imageInputStream = new ByteArrayInputStream(os.toByteArray());
+		result = ImageVerificationMain.getImageTypeFromByte(imageInputStream);
+	} catch (IOException e) {
+		System.err.println(e);
+	}
+	assertEquals(result, &quot;image/gif&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, refactor the code to add for the image type GIF:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public static final String getImageTypeFromByte(InputStream is) throws IOException {
+	String contentType = null;
+	if (is == null)
+		return contentType;
+
+	try {
+		int b1 = is.read();
+		// Check for empty input stream
+		if (b1 == -1)
+			return contentType;
+		int b2 = is.read();
+		int b3 = is.read();
+		int b4 = is.read();
+		int b5 = is.read();
+		int b6 = is.read();
+		int b7 = is.read();
+		int b8 = is.read();
+		/**
+		 * GIF image files have the ASCII code for &quot;GIF89a&quot; (47 49 46 38 39 61) or
+		 * &quot;GIF87a&quot; (47 49 46 38 37 61)
+		 */
+		if (b1 == 0x47 &amp;amp;&amp;amp; b2 == 0x49 &amp;amp;&amp;amp; b3 == 0x46 &amp;amp;&amp;amp; b4 == 0x38 &amp;amp;&amp;amp; (b5 == 0x39 || b5 == 0x37) &amp;amp;&amp;amp; b6 == 0x61) {
+			contentType = &quot;image/gif&quot;;
+		}
+	} catch (IOException ex) {
+		throw ex;
+	}
+
+	return contentType;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;test-case-for-png&quot;&gt;Test Case for PNG&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Test
+public void testGetContentTypeFromByte_for_PNG() {
+	BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+	String result = null;
+	try {
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		ImageIO.write(image, &quot;png&quot;, os);
+		InputStream imageInputStream = new ByteArrayInputStream(os.toByteArray());
+		result = ImageVerificationMain.getImageTypeFromByte(imageInputStream);
+	} catch (IOException e) {
+		System.err.println(e);
+	}
+	assertEquals(result, &quot;image/png&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This test is going to fail as we have not implemented the code yet. So, let’s refactor the code as following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public static final String getImageTypeFromByte(InputStream is) throws IOException {
+	String contentType = null;
+	if (is == null)
+		return contentType;
+
+	try {
+		int b1 = is.read();
+		// Check for empty input stream
+		if (b1 == -1)
+			return contentType;
+		int b2 = is.read();
+		int b3 = is.read();
+		int b4 = is.read();
+		int b5 = is.read();
+		int b6 = is.read();
+		int b7 = is.read();
+		int b8 = is.read();
+		/**
+		 * GIF image files have the ASCII code for &quot;GIF89a&quot; (47 49 46 38 39 61) or
+		 * &quot;GIF87a&quot; (47 49 46 38 37 61)
+		 */
+		if (b1 == 0x47 &amp;amp;&amp;amp; b2 == 0x49 &amp;amp;&amp;amp; b3 == 0x46 &amp;amp;&amp;amp; b4 == 0x38 &amp;amp;&amp;amp; (b5 == 0x39 || b5 == 0x37) &amp;amp;&amp;amp; b6 == 0x61) {
+			contentType = &quot;image/gif&quot;;
+		/**
+		 * PNG image files begin with an 8-byte signature which identifies the file as a
+		 * PNG file and allows detection of common file transfer problems: \211 P N G \r
+		 * \n \032 \n (89 50 4E 47 0D 0A 1A 0A).
+		 */
+		} else if (b1 == 0x89 &amp;amp;&amp;amp; b2 == 0x50 &amp;amp;&amp;amp; b3 == 0x4E &amp;amp;&amp;amp; b4 == 0x47 &amp;amp;&amp;amp; b5 == 0x0D &amp;amp;&amp;amp; b6 == 0x0A &amp;amp;&amp;amp; b7 == 0x1A
+				&amp;amp;&amp;amp; b8 == 0x0A) {
+			contentType = &quot;image/png&quot;;
+		}
+	} catch (IOException ex) {
+		throw ex;
+	}
+
+	return contentType;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The test case for GIF should pass.&lt;/p&gt;
+
+&lt;h3 id=&quot;test-case-for-jpeg&quot;&gt;Test Case for JPEG&lt;/h3&gt;
+&lt;p&gt;Finally, let’s add the Test Case for image type jpeg :&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Test
+public void testGetContentTypeFromByte_for_JPEG() {
+	BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+	String result = null;
+	try {
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		ImageIO.write(image, &quot;jpeg&quot;, os);
+		InputStream imageInputStream = new ByteArrayInputStream(os.toByteArray());
+		result = ImageVerificationMain.getImageTypeFromByte(imageInputStream);
+	} catch (IOException e) {
+		System.err.println(e);
+	}
+	assertEquals(result, &quot;image/jpeg&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This test case is going to fail, so let’s refactor and the final implementation looks like following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.io.IOException;
+import java.io.InputStream;
+
+/**
+ * Check if image type is &amp;lt;code&amp;gt;gif&amp;lt;/code&amp;gt;, &amp;lt;code&amp;gt;png&amp;lt;/code&amp;gt; or
+ * &amp;lt;code&amp;gt;jpeg&amp;lt;/code&amp;gt;. For all other types of content return null.
+ * 
+ * This is based on the magic number. See
+ * {@link https://en.wikipedia.org/wiki/Magic_number_(programming)}
+ * 
+ */
+public class ImageVerificationMain {
+
+	public static final String getImageTypeFromByte(InputStream is) throws IOException {
+		String contentType = null;
+		if (is == null)
+			return contentType;
+
+		try {
+			int b1 = is.read();
+			// Check for empty input stream
+			if (b1 == -1)
+				return contentType;
+			int b2 = is.read();
+			int b3 = is.read();
+			int b4 = is.read();
+			int b5 = is.read();
+			int b6 = is.read();
+			int b7 = is.read();
+			int b8 = is.read();
+			/**
+			 * GIF image files have the ASCII code for &quot;GIF89a&quot; (47 49 46 38 39 61) or
+			 * &quot;GIF87a&quot; (47 49 46 38 37 61)
+			 */
+			if (b1 == 0x47 &amp;amp;&amp;amp; b2 == 0x49 &amp;amp;&amp;amp; b3 == 0x46 &amp;amp;&amp;amp; b4 == 0x38 &amp;amp;&amp;amp; (b5 == 0x39 || b5 == 0x37) &amp;amp;&amp;amp; b6 == 0x61) {
+				contentType = &quot;image/gif&quot;;
+			/**
+			 * PNG image files begin with an 8-byte signature which identifies the file as a
+			 * PNG file and allows detection of common file transfer problems: \211 P N G \r
+			 * \n \032 \n (89 50 4E 47 0D 0A 1A 0A).
+			 */
+			} else if (b1 == 0x89 &amp;amp;&amp;amp; b2 == 0x50 &amp;amp;&amp;amp; b3 == 0x4E &amp;amp;&amp;amp; b4 == 0x47 &amp;amp;&amp;amp; b5 == 0x0D &amp;amp;&amp;amp; b6 == 0x0A &amp;amp;&amp;amp; b7 == 0x1A
+					&amp;amp;&amp;amp; b8 == 0x0A) {
+				contentType = &quot;image/png&quot;;
+			/**
+			 * JPEG image files begin with FF D8 and end with FF D9. JPEG/JFIF files contain
+			 * the ASCII code for &quot;JFIF&quot; (4A 46 49 46) as a null terminated string.
+			 * JPEG/Exif files contain the ASCII code for &quot;Exif&quot; (45 78 69 66) also as a
+			 * null terminated string, followed by more metadata about the file.
+			 */
+			} else if (b1 == 0xFF &amp;amp;&amp;amp; b2 == 0xD8) {
+				contentType = &quot;image/jpeg&quot;;
+			}
+		} catch (IOException ex) {
+			throw ex;
+		}
+
+		return contentType;
+	}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is great example of how one can reach a full implementation code by first writing the test and upon failing implement the code.&lt;/p&gt;
+
+&lt;p&gt;The final source code is available on Github [2]&lt;/p&gt;
+
+&lt;p&gt;[1] https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files&lt;/p&gt;
+
+&lt;p&gt;[2] https://github.com/royalghost/ImageVerificationApp/tree/master/src&lt;/p&gt;</content><author><name></name></author><summary type="html">In this blog post, I am going to walkthrough you an example of how to do TDD in Java in order to find the image type based on the magic number.</summary></entry></feed>
