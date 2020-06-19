@@ -32,6 +32,7 @@ Document-based
 Graph-based
 
 Caching
+[Database Caching Strategies Using Redis](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjOmYqViY7qAhUwknIEHVgwBe8QFjAAegQIAhAB&url=https%3A%2F%2Fd0.awsstatic.com%2Fwhitepapers%2FDatabase%2Fdatabase-caching-strategies-using-redis.pdf)
 
 Data center/racks/hosts
 
