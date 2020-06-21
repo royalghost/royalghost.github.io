@@ -80,3 +80,7 @@ Multithreading, locks, synchronization, CAS(compare and set)
 Distributed Hash Table
 
 Collaborative filtering
+
+# References :
+
+[https://dsrg.pdos.csail.mit.edu/papers/] (https://dsrg.pdos.csail.mit.edu/papers/)
