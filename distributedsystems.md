@@ -83,4 +83,6 @@ Collaborative filtering
 
 # References :
 
-[https://dsrg.pdos.csail.mit.edu/papers/] (https://dsrg.pdos.csail.mit.edu/papers/)
+[https://dsrg.pdos.csail.mit.edu/papers/](https://dsrg.pdos.csail.mit.edu/papers/)
+
+[6.824: Distributed Systems](https://pdos.csail.mit.edu/6.824/index.html)
