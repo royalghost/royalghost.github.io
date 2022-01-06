@@ -23,17 +23,17 @@ RelationalDB vs NoSQL
 
 Types of NoSQL
 
-Key value
+- Key value
 
-Wide column
+- Wide column
 
-Document-based
+- Document-based
 
-Graph-based
+- Graph-based
 
 Caching
 
-[Database Caching Strategies Using Redis](https://d0.awsstatic.com/whitepapers/Database/database-caching-strategies-using-redis.pdf)
+- [Database Caching Strategies Using Redis](https://d0.awsstatic.com/whitepapers/Database/database-caching-strategies-using-redis.pdf)
 
 Data center/racks/hosts
 
@@ -64,6 +64,7 @@ CDNs & Edges
 Bloom filters and Count-Min sketch
 
 Paxos
+- [Original Paxos algorithm paper](http://lamport.azurewebsites.net/pubs/pubs.html#lamport-paxos)
 
 Leader election
 
