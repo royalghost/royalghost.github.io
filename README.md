@@ -1,6 +1,8 @@
-### Full Stack Developer
+### Engineering Leader
 
-I am a full stack developer with a passion in software design, development and leading teams. Some of the other stuff I find interest are [here](./interesting.md).
+I am a Senior Engineer with a passion in software design, development and leading teams to solve ambiguous problem. I also love coffee, beer, sandwiches and tennis. I live with my wife and two kids in Toronto, Canada.
+
+Some of the other stuff I find interest are [here](./interesting.md).
 
 ### Github
 [https://github.com/royalghost/](https://github.com/royalghost/)
