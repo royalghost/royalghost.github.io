@@ -31,7 +31,8 @@ minima:
     - { platform: github, user_url: "https://github.com/royalghost" }
     - { platform: twitter, user_url: "https://twitter.com/paudelp"}
     - { platform: linkedin, user_url: "https://linkedin.com/in/paudelp"}
-  google_analytics: G-GF8R9BG98L
+
+google_analytics: G-GF8R9BG98L
 
 plugins:
   - jekyll-feed
