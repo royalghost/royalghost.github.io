@@ -10,10 +10,10 @@ I sometimes do coaching and mentorships based on availability and match of candi
 
 ## Resources
 
-|    | 
+| Interview Guides   | 
 | -------- | 
-| [System Design Interview Guide](./system-design) | 
-|  |
-|  |
+| [System Design](./system-design) | 
+| [Algorithm and Data Structures](./algorithm-data-structures) |
+| [Behavioral and Leaderships](./behavioral-leaderships) |
 
 
