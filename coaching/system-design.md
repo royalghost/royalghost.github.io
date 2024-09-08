@@ -1,8 +1,7 @@
 ---
 layout: page
+title: System Design Interview Guide for Senior Roles at Big Tech Companies
 ---
-
-# System Design Interview Guide for Senior Roles at Big Tech Companies
 
 ## 1. Introduction
 System design interviews are a crucial part of the hiring process for senior engineering roles at big tech companies. They assess your ability to design large-scale distributed systems and evaluate your technical knowledge, problem-solving skills, and communication abilities.

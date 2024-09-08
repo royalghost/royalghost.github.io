@@ -1,8 +1,7 @@
 ---
 layout: page
+title: E-commerce Website System Design Interview Example
 ---
-
-# E-commerce Website System Design Interview Example
 
 ## 1. Problem Statement (5 minutes)
 
